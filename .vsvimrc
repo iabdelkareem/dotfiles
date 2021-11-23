@@ -1,0 +1,99 @@
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :vsc Edit.FormatDocument<CR>:w<CR>
+
+" Yank Extensions
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
+
+nnoremap <leader>rn :vsc Resharper.Resharper_Rename<CR>
+nmap ]e :vsc ReSharper.ReSharper_GotoNextErrorInSolution<CR>
+nmap [e :vsc ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+inoremap jk <esc>
+nmap j gj
+nmap k gk
+
+inoremap <C-i><C-p> :vsc Resharper.Resharper_ParameterInfoShow<CR>
+inoremap <C-i><C-q> :vsc Edit.QuickInfo<CR>
+nnoremap <leader>qp :vsc Resharper.Resharper_ParameterInfoShow<CR>
+nnoremap K :vsc Edit.QuickInfo<CR>
+nnoremap <leader>qi :vsc Edit.QuickInfo<CR>
+nnoremap <leader>qk :vsc Tools.CustomizeKeyboard<CR>
+nnoremap zl :so ~/.vsvimrc<CR>
+nmap H :vsc Window.PreviousTab<CR>
+nmap L :vsc Window.NextTab<CR>
+
+" Code Assistance
+vnoremap <leader>cc :vsc Edit.CommentSelection<CR>
+vnoremap <leader>cC :vsc Edit.UncommentSelection<CR>
+nnoremap <leader>cf :vsc Edit.FormatDocument<CR>
+nnoremap <leader>cmk :vsc Resharper.ReSharper_MoveUp<CR>
+nnoremap <leader>cmj :vsc Resharper.Resharper_MoveDown<CR>
+nnoremap <leader>cs :vsc Resharper.ReSharper_SurroundWith<CR>
+nnoremap <leader>cu :vsc Edit.SortUsings<CR>
+
+" Navigation 
+nnoremap <leader>fa :vsc Resharper.Resharper_GotoAction<CR>
+nnoremap <leader>fr :vsc Resharper.Resharper_GotoRecentFiles<CR>
+nnoremap <leader>fg :vsc Resharper.Resharper_GotoType<CR>
+nnoremap <leader>ff :vsc Resharper.Resharper_GotoFile<CR>
+nnoremap <leader>fm :vsc Resharper.Resharper_GotoFileMember<CR>
+nnoremap <leader>fs :vsc Resharper.Resharper_GotoSymbol<CR>
+nnoremap <leader>fu :vsc Resharper.Resharper_FindUsages<CR>
+nnoremap <leader>fU :vsc Resharper.Resharper_FindUsagesAdvanced<CR>
+nnoremap <leader>fhu :vsc Resharper.Resharper_HighlightUsage<CR>
+nnoremap <leader>fe :vsc View.SolutionExplorer<CR>
+
+" Code Navigation
+nnoremap gd :vsc Resharper.ReSharper_GotoDeclaration<CR>
+nnoremap gI :vsc Resharper.ReSharper_GotoImplementations<CR>
+nnoremap gp :vsc Edit.PeekDefinition<CR>
+nnoremap gr :vsc Edit.FindAllReferences<CR>
+nnoremap gm :vsc Resharper.Resharper_GotoTypeDeclaration<CR>
+nnoremap gb :vsc Resharper.Resharper_GotoBase<CR>
+nnoremap gB :vsc Resharper.Resharper_GotoInheritors<CR>
+nnoremap gpd :vsc Resharper.Resharper_PeekDefinition<CR>
+nnoremap gpu :vsc Resharper.Resharper_PeekUsages<CR>
+nnoremap gpb :vsc Resharper.Resharper_PeekBaseSymbols<CR>
+nnoremap gpi :vsc Resharper.Resharper_PeekImplementations<CR>
+nnoremap <leader>m :vsc Resharper.Resharper_GotoNextMember<CR>
+nnoremap <leader>M :vsc Resharper.Resharper_GotoPrevMember<CR>
+nmap ]m :vsc Edit.NextMethod<CR>
+nmap [m :vsc Edit.PreviousMethod<CR>
+"nmap ]m :vsc Resharper.Resharper_GotoNextMember<CR>
+"nmap [m :vsc Resharper.Resharper_GotoPrevMember<CR>
+"nmap [[ :vsc Resharper.Resharper_GotoPrevMember<CR>
+"nmap ]] :vsc ReSharper.ReSharper_GotoNextMember<CR>
+"nnoremap gu] Resharper_NavigateToNextUsage<CR>
+"nnoremap gu[ Resharper_NavigateToPrevUsage<CR>
+
+" Unit Tests
+nnoremap <leader>uar :vsc Resharper.Resharper_UnitTestRunSolution<CR>
+nnoremap <leader>ur :vsc Resharper.ReSharper_UnitTestRunFromContext<CR>
+nnoremap <leader>urd :vsc Resharper.ReSharper_UnitTestDebugContext<CR>
+nnoremap <leader>ue :vsc Resharper.ReSharper_ShowUnitTestExplorer<CR>
+
+" gS prefix is added for ViEmu, no use for VsVim AFAIK.
+"VsVim and ViEmu are disabled until PeasyMotion finishes
+
+"Whole viewport jump-to-word beginning mode:
+nnoremap <Space> :vsc Tools.InvokePeasyMotion<CR>
+
+"Select text from current caret position to desired jump label (fwd and reverse directions supported)
+nmap ;; :vsc Tools.InvokePeasyMotionTextSelect<CR>
+
+"Jump to word beginning in current line
+nmap zw :vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
+"Jump to word ending in current line
+nmap ze :vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
+
+"Jump to any open document tab
+nmap ;w :vsc Tools.InvokePeasyMotionJumpToDocumentTab<CR>
+
+"Jump to line beginning:
+nmap ;l :vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+
+"Two char search mode:
+nmap ;c :vsc Tools.InvokePeasyMotionTwoCharJump<CR>
+
+set relativenumber

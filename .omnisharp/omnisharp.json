@@ -1,0 +1,37 @@
+{
+  "FileOptions": {
+    "SystemExcludeSearchPatterns": [
+      "**/node_modules/**/*",
+      "**/bin/**/*",
+      "**/obj/**/*",
+      "**/.git/**"
+    ],
+    "ExcludeSearchPatterns": []
+  },
+  "RoslynExtensionsOptions": {
+    "DocumentAnalysisTimeoutMs": 10000,
+    "EnableDecompilationSupport": true,
+    "EnableImportCompletion": true,
+    "EnableAsyncCompletion": true,
+    "EnableAnalyzersSupport": true,
+    "LocationPaths": [],
+    "InlayHintsOptions": {
+      "EnableForParameters": false,
+      "ForLiteralParameters": false,
+      "ForIndexerParameters": false,
+      "ForObjectCreationParameters": false,
+      "ForOtherParameters": false,
+      "SuppressForParametersThatDifferOnlyBySuffix": false,
+      "SuppressForParametersThatMatchMethodIntent": false,
+      "SuppressForParametersThatMatchArgumentName": false,
+      "EnableForTypes": false,
+      "ForImplicitVariableTypes": false,
+      "ForLambdaParameterTypes": false,
+      "ForImplicitObjectCreation": false
+    }
+  },
+  "FormattingOptions": {
+    "EnableEditorConfigSupport": true,
+    "OrganizeImports": true
+  }
+}

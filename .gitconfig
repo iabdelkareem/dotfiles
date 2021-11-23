@@ -1,0 +1,21 @@
+[init]
+	defaultBranch = main
+[user]
+  email = ibrahim.abdelkareem.1990@gmail.com
+  name = Ibrahim Abdelkareem
+  useConfigOnly = true
+
+[includeIf "gitdir:~/personal/study/"]
+  path = .gitconfig-kth
+		
+[pull]
+	rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[core]
+  editor = nvim --cmd 'let g:unception_block_while_host_edits=1'
+  attributesfile = /home/ibrahim/.gitattributes
+	autocrlf = input
+  eol=lf

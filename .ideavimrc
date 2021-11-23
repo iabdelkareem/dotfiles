@@ -1,0 +1,112 @@
+set relativenumber
+set number
+
+let mapleader = " "
+
+nmap <leader>q :q<CR>
+nmap <leader>Q :action ReopenClosedTab<cr>
+nmap <leader>w :action OptimizeImports<cr>
+" imap jk <Esc>
+
+""" Actions
+" map <leader>g <Action>(FindInPath)
+" map <leader>b <Action>(Switcher)
+
+nnoremap <leader>ff <Action>(GotoFile)<CR>
+
+set commentary
+set highlightedyank
+set matchit
+set ignorecase
+set smartcase
+set scrolloff=3 " 3 lines above/below cursor when scrolling
+" Emulated Plugins
+set surround
+" set easymotion
+set NERDTree
+nnoremap <leader>fe :action SelectInProjectView<CR>
+" :NERDTreeFocus<CR>
+
+set clipboard+=unnamed
+set ideajoin
+set multiple-cursors
+
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
+
+" These create newlines like o and O but stay in normal mode
+nmap zj o<Esc>k
+nmap zk O<Esc>j
+
+
+nmap <leader>h :action SplitHorizontally<cr>
+nmap <leader> :action SplitVertically<cr>
+" nmap <leader>wc :action Unsplit<cr>
+" nmap <leader>wC :action UnsplitAll<cr>
+" nmap <leader>wd :action OpenEditorInOppositeTabGroup<cr>
+"
+" Navigation
+" nmap <leader>L :action RecentLocations<cr>
+nmap <leader>fo :action RecentFiles<cr>
+nmap <leader>ff :action GotoFile<cr>
+nmap <leader>fr :action FindUsages<cr>
+nmap <leader>ft :action GotoClass<cr>
+nmap <leader>fc :action GotoClass<cr>
+nmap <leader>fs :action GotoSymbol<cr>
+nmap <leader>fa :action GotoAction<cr>
+nmap <leader>fm :action FileStructurePopup<cr>
+nmap <leader>ch :action CallHierarchy<cr>
+" nmap <leader>m :action ToggleBookmark<cr>
+" nmap <leader>; :action FileStructurePopup<cr>
+nmap <leader>M :action ActivateStructureToolWindow<cr>
+nmap <leader>dd :action ShowErrorDescription<cr>
+nmap gi :action GotoImplementation<cr>
+" nmap <leader>U :action GotoSuperMethod<cr>
+" nmap <leader>I :action SelectIn<cr>
+" nmap <leader>t :action GotoTest<cr>
+" nmap <leader>p :action JumpToLastWindow<cr>
+" nmap <leader>b :action ShowBookmarks<cr>
+"
+" Errors
+nmap ]e :action GotoNextError<cr>
+nmap [e :action GotoPreviousError<cr>
+
+" Refactorings
+vmap T :action Refactorings.QuickListPopupAction<cr>
+vmap <leader>rm :action ExtractMethod<cr>
+nmap <leader>rr :action RenameElement<cr>
+nnoremap <leader>ca :action ShowIntentionActions<cr>
+nnoremap <leader>cf :action ReformatCode<cr>
+" nmap <leader>rg :action Generate<cr>
+"
+
+" Terminal
+nmap <leader>T :action ActivateTerminalToolWindow<cr>
+
+nnoremap [q :action PreviousOccurence<cr>
+nnoremap ]q :action NextOccurence<cr>
+nnoremap [f :action MethodUp<cr>
+nnoremap ]f :action MethodDown<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+" Tabs
+nnoremap H :action PreviousTab<cr>
+nnoremap L :action NextTab<cr>
+
+" set sneak
+set quickscope
+set which-key
+" disable the timeout option
+set notimeout
+
+" Ace Jump
+" Press `F` to activate Target Mode
+nnoremap s :action AceWordAction<cr>
+" Press `g` to activate Line Mode
+nnoremap S :action AceLineAction<cr>
+
+" increase the timeoutlen (default: 1000)
+" set timeoutlen = 5000
