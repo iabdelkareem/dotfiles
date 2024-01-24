@@ -14,7 +14,7 @@ function M.get_plugin_specs()
       "L3MON4D3/LuaSnip",
       dependencies = "rafamadriz/friendly-snippets",
       config = function()
-        require("ide.snippets").config()
+        require("coding.snippets").config()
       end
     }
   }

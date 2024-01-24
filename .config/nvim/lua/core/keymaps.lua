@@ -44,34 +44,34 @@ map("n", "<leader>?", "<cmd>WhichKey<CR>", { noremap = true, silent = true, desc
 -- map("n", "<leader>q", "q", { silent = true, desc = "Record" })
 
 function M.get_plugin_specs()
-  return {
-    {
-      "folke/which-key.nvim",
-      config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup()
-      end,
-    },
-    {
-      "anuvyklack/hydra.nvim",
-      config = function()
-        -- local hydra = require("hydra")
-        --
-        -- hydra({
-        --   name = "Vertical Scroll",
-        --   mode = "n",
-        --   body = "<C>",
-        --   heads = {
-        --     { "u", "<C-u>" },
-        --     { "d", "<C-d>" },
-        --     { "e", "<C-e>" },
-        --     { "y", "<C-y>" },
-        --   },
-        -- })
-      end,
-    },
-  }
+	return {
+		{
+			"folke/which-key.nvim",
+			config = function()
+				vim.o.timeout = true
+				vim.o.timeoutlen = 300
+				require("which-key").setup()
+			end,
+		},
+		{
+			"anuvyklack/hydra.nvim",
+			config = function()
+				-- local hydra = require("hydra")
+				--
+				-- hydra({
+				--   name = "Vertical Scroll",
+				--   mode = "n",
+				--   body = "<C>",
+				--   heads = {
+				--     { "u", "<C-u>" },
+				--     { "d", "<C-d>" },
+				--     { "e", "<C-e>" },
+				--     { "y", "<C-y>" },
+				--   },
+				-- })
+			end,
+		},
+	}
 end
 
 return M

@@ -130,14 +130,14 @@ function M.get_plugin_specs()
         "saadparwaiz1/cmp_luasnip",
       },
       config = function()
-        require("ide.completion").config()
+        require("coding.completion").config()
       end,
     },
   }
 
-  vim.u.extend_plugin_specs(specs, "ide.completion.autopairs")
-  vim.u.extend_plugin_specs(specs, "ide.completion.cmdline")
-  vim.u.extend_plugin_specs(specs, "ide.completion.git")
+  vim.u.extend_plugin_specs(specs, "coding.completion.autopairs")
+  vim.u.extend_plugin_specs(specs, "coding.completion.cmdline")
+  vim.u.extend_plugin_specs(specs, "coding.completion.git")
   return specs
 end
 

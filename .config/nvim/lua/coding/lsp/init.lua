@@ -41,15 +41,15 @@ function M.get_plugin_specs()
 	}
 
 	local extend_plugin_specs = vim.u.extend_plugin_specs
-	extend_plugin_specs(specs, "ide.lsp.context")
-	extend_plugin_specs(specs, "ide.lsp.formatting")
-	extend_plugin_specs(specs, "ide.lsp.highlighting")
-	extend_plugin_specs(specs, "ide.lsp.keymaps")
-	extend_plugin_specs(specs, "ide.lsp.progress")
-	extend_plugin_specs(specs, "ide.lsp.signature")
-	extend_plugin_specs(specs, "ide.lsp.null-ls")
-	extend_plugin_specs(specs, "ide.lsp.rename")
-	-- extend_plugin_specs(specs, "ide.lsp.lens")
+	extend_plugin_specs(specs, "coding.lsp.context")
+	extend_plugin_specs(specs, "coding.lsp.formatting")
+	extend_plugin_specs(specs, "coding.lsp.highlighting")
+	extend_plugin_specs(specs, "coding.lsp.keymaps")
+	extend_plugin_specs(specs, "coding.lsp.progress")
+	extend_plugin_specs(specs, "coding.lsp.signature")
+	extend_plugin_specs(specs, "coding.lsp.null-ls")
+	extend_plugin_specs(specs, "coding.lsp.rename")
+	-- extend_plugin_specs(specs, "coding.lsp.lens")
 	return specs
 end
 

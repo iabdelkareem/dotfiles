@@ -32,7 +32,7 @@ local function init()
 	for name, type in vim.fs.dir(current_file_path) do
 		if name ~= "init.lua" then
 			local module_name = string.gsub(name, ".lua", "")
-			table.insert(language_modules, require("ide.languages." .. module_name))
+			table.insert(language_modules, require("coding.languages." .. module_name))
 		end
 	end
 

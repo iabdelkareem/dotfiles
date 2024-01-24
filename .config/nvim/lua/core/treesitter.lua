@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+local function config()
 	---@diagnostic disable-next-line: missing-fields
 	require("nvim-treesitter.configs").setup({
 		ensure_installed = "all",
@@ -148,9 +148,7 @@ function M.get_plugin_specs()
 				"nvim-treesitter/playground",
 				"andymass/vim-matchup",
 			},
-			config = function()
-				require("ide.treesitter").config()
-			end,
+			config = config,
 		},
 		{
 			"theRealCarneiro/hyprland-vim-syntax",

@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config_gitsigns()
+local function config_gitsigns()
 	require("gitsigns").setup({
 		on_attach = function(bufnr)
 			local gitsigns = require("gitsigns")
@@ -58,9 +58,7 @@ function M.get_plugin_specs()
 
 		{
 			"lewis6991/gitsigns.nvim",
-			config = function()
-				require("git").config_gitsigns()
-			end,
+			config = config_gitsigns,
 		},
 		{
 			"ldelossa/gh.nvim",

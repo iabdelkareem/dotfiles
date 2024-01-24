@@ -26,24 +26,10 @@ vim.u.extend_plugin_specs = extend_plugin_specs
 ensure_lazy_nvim_installed()
 
 local plugins = {}
-extend_plugin_specs(plugins, "keymaps")
 extend_plugin_specs(plugins, "theme")
-extend_plugin_specs(plugins, "file-tree")
-extend_plugin_specs(plugins, "motions")
-extend_plugin_specs(plugins, "tabline")
-extend_plugin_specs(plugins, "statusline")
-extend_plugin_specs(plugins, "window")
-extend_plugin_specs(plugins, "finder")
-extend_plugin_specs(plugins, "sessions")
-extend_plugin_specs(plugins, "terminal")
-extend_plugin_specs(plugins, "git")
-extend_plugin_specs(plugins, "ide")
-extend_plugin_specs(plugins, "search")
-extend_plugin_specs(plugins, "quickfix")
-extend_plugin_specs(plugins, "save")
+extend_plugin_specs(plugins, "core")
+extend_plugin_specs(plugins, "coding")
 extend_plugin_specs(plugins, "extensions")
-extend_plugin_specs(plugins, "folding")
-extend_plugin_specs(plugins, "startup")
 
 require("lazy").setup(plugins, { dev = { path = "~/personal/repos" } })
 
