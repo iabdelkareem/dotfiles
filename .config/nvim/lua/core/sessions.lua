@@ -13,6 +13,7 @@ function M.get_plugin_specs(use)
 	return {
 		{
 			"ahmedkhalf/project.nvim",
+			cond = not require("utils").is_vscode(),
 			dependencies = {
 				"nvim-telescope/telescope.nvim",
 			},

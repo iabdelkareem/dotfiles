@@ -39,6 +39,8 @@ local function init()
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "VeryLazy",
 		callback = setup_lsp,
+		desc = "Config LSP",
+		once = true,
 	})
 end
 

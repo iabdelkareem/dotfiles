@@ -13,6 +13,7 @@ function M.get_lsp_configs()
 						checkThirdParty = false,
 						library = {
 							"/usr/share/lua/5.4/luassert",
+							"$HOME/personal/repos/csharp.nvim/lua",
 						},
 					},
 					completion = {
@@ -84,13 +85,9 @@ function M.get_plugin_specs()
 						},
 					}
 
-					dap.adapters.nlua = function(callback, config)
-						callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 })
-					end
+					dap.adapters.nlua = function(callback, config) callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 }) end
 
-					vim.keymap.set("n", "<leader>dN", function()
-						require("osv").launch({ port = 8086, log = true })
-					end, { noremap = true, desc = "Debug Neovim" })
+					vim.keymap.set("n", "<leader>dN", function() require("osv").launch({ port = 8086, log = true }) end, { noremap = true, desc = "Debug Neovim" })
 				end,
 			},
 		},

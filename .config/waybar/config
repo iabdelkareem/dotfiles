@@ -39,7 +39,9 @@
       "class<Slack>": "",
       "class<YouTube Music>": "",
       "class<Google-chrome>": "",
-      "class<Code>": "󰨞"
+      "class<Code>": "󰨞",
+      "class<kitty> title<nvim>": "",
+      "class<firefox> title<.*(eu|us)-(.*)-\\d.*>": ""
     }
   },
   "hyprland/window": {
@@ -145,18 +147,18 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-wifi": "{signalStrength}% ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈁",
+    "tooltip-format": "{essid} on {ifname} via {gwaddr}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
+    "format-disconnected": "󰖪",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "{icon}  {format_source}",
     "format-muted": "  {format_source}",
     "format-source": "{volume}% 󰍬",
     "format-source-muted": "󰍭",

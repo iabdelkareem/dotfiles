@@ -1,73 +1,25 @@
 local M = {}
 
 local function register_keymaps()
-	vim.keymap.set("n", "<leader>ff", function()
-		require("extensions.fuzzy-finder.finders").find_files()
-	end, { desc = "Find Files" })
-
-	vim.keymap.set("n", "<leader>fb", function()
-		require("telescope.builtin").buffers()
-	end, { desc = "Find Buffers" })
-
-	vim.keymap.set("n", "<leader>fh", function()
-		require("telescope.builtin").help_tags()
-	end, { desc = "Find Help" })
-
-	vim.keymap.set("n", "<leader>fr", function()
-		require("telescope.builtin").oldfiles()
-	end, { desc = "Find Recent" })
-
-	vim.keymap.set("n", "<leader>fg", function()
-		require("telescope.builtin").live_grep()
-	end, { desc = "Live Grep" })
-
-	vim.keymap.set("n", "<leader>fc", function()
-		require("telescope.builtin").commands()
-	end, { desc = "Find Commands" })
-
-	vim.keymap.set("n", "<leader>fw", function()
-		require("telescope.builtin").current_buffer_fuzzy_find()
-	end, { desc = "Current Buffer Fuzzy Find" })
-
-	vim.keymap.set("n", "<leader>fp", function()
-		require("telescope").extensions.project.project()
-	end, { desc = "Find Projects" })
-
-	vim.keymap.set("n", "<leader>fP", function()
-		require("telescope.builtin").builtin()
-	end, { desc = "Find Pickers" })
-
-	vim.keymap.set("n", "<leader>fi", function()
-		require("telescope.builtin").builtin.lsp_incoming_calls()
-	end, { desc = "Incoming Calls" })
-
-	vim.keymap.set("n", "<leader>fo", function()
-		require("telescope.builtin").builtin.lsp_outgoing_calls()
-	end, { desc = "Outgoing Calls" })
-
-	vim.keymap.set("n", "<leader>Fr", function()
-		require("extensions.fuzzy-finder.finders").find_files({ default_text = "Request" })
-	end, { desc = "Find Requests" })
-
-	vim.keymap.set("n", "<leader>FR", function()
-		require("extensions.fuzzy-finder.finders").find_files({ default_text = "Repository" })
-	end, { desc = "Find Repositories" })
-
-	vim.keymap.set("n", "<leader>Fh", function()
-		require("extensions.fuzzy-finder.finders").find_files({ default_text = "Handler" })
-	end, { desc = "Find Handler" })
-
-	vim.keymap.set("n", "<leader>gb", function()
-		require("telescope.builtin").git_branches()
-	end, { desc = "Git branches" })
-
-	vim.keymap.set("n", "<leader>gc", function()
-		require("telescope.builtin").git_commits()
-	end, { desc = "Git commits" })
-
-	vim.keymap.set("n", "<leader>fT", function()
-		require("telescope.builtin").filetypes()
-	end)
+	vim.keymap.set("n", "<leader>ff", function() require("extensions.fuzzy-finder.finders").find_files() end, { desc = "Find Files" })
+	vim.keymap.set("n", "<leader>fb", function() require("telescope.builtin").buffers() end, { desc = "Find Buffers" })
+	vim.keymap.set("n", "<leader>fh", function() require("telescope.builtin").help_tags() end, { desc = "Find Help" })
+	vim.keymap.set("n", "<leader>fH", function() require("telescope.builtin").highlights() end, { desc = "Find Help" })
+	vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfiles() end, { desc = "Find Recent" })
+	vim.keymap.set("n", "<leader>fg", function() require("telescope.builtin").live_grep() end, { desc = "Live Grep" })
+	vim.keymap.set("n", "<leader>fc", function() require("telescope.builtin").commands() end, { desc = "Find Commands" })
+	vim.keymap.set("n", "<leader>fw", function() require("telescope.builtin").current_buffer_fuzzy_find() end, { desc = "Current Buffer Fuzzy Find" })
+	vim.keymap.set("n", "<leader>fp", function() require("telescope").extensions.project.project() end, { desc = "Find Projects" })
+	vim.keymap.set("n", "<leader>fP", function() require("telescope.builtin").builtin() end, { desc = "Find Pickers" })
+	vim.keymap.set("n", "<leader>fi", function() require("telescope.builtin").builtin.lsp_incoming_calls() end, { desc = "Incoming Calls" })
+	vim.keymap.set("n", "<leader>fo", function() require("telescope.builtin").builtin.lsp_outgoing_calls() end, { desc = "Outgoing Calls" })
+	vim.keymap.set("n", "<leader>Fr", function() require("extensions.fuzzy-finder.finders").find_files({ default_text = "Request" }) end, { desc = "Find Requests" })
+	vim.keymap.set("n", "<leader>FR", function() require("extensions.fuzzy-finder.finders").find_files({ default_text = "Repository" }) end, { desc = "Find Repositories" })
+	vim.keymap.set("n", "<leader>Fh", function() require("extensions.fuzzy-finder.finders").find_files({ default_text = "Handler" }) end, { desc = "Find Handler" })
+	vim.keymap.set("n", "<leader>gb", function() require("telescope.builtin").git_branches() end, { desc = "Git branches" })
+	vim.keymap.set("n", "<leader>gc", function() require("telescope.builtin").git_commits() end, { desc = "Git commits" })
+	vim.keymap.set("n", "<leader>fT", function() require("telescope.builtin").filetypes() end)
+	vim.keymap.set("n", "<leader>fu", function() require("telescope").extensions.undo.undo() end, { desc = "Undo" })
 end
 
 local function config()
@@ -135,6 +87,7 @@ local function config()
 				base_dirs = {
 					{ vim.fn.getenv("WORK_REPOS"), max_depth = 2 },
 					{ vim.fn.getenv("PERSONAL_REPOS"), max_depth = 2 },
+					{ vim.fn.getenv("BYTES_MAESTROS_REPOS"), max_depth = 2 },
 					{ "~/.local/share/nvim/lazy", max_depth = 3 },
 				},
 				order_by = "recent",
@@ -143,6 +96,7 @@ local function config()
 					require("extensions.fuzzy-finder.finders").find_files()
 				end,
 			},
+			undo = {},
 		},
 		pickers = {
 			find_files = {
@@ -172,7 +126,7 @@ local function config()
 	telescope.load_extension("project") -- telescope-project.nvim
 	telescope.load_extension("repo")
 	telescope.load_extension("file_browser")
-
+	telescope.load_extension("undo")
 	-- Replace Default LSP pickers with telescope
 	local builtin = require("telescope.builtin")
 	vim.lsp.buf.definition = builtin.lsp_definitions
@@ -186,9 +140,10 @@ end
 function M.get_plugin_specs()
 	register_keymaps()
 
-	return {
+	local plugins = {
 		{
 			"nvim-telescope/telescope.nvim",
+			cond = not require("utils").is_vscode(),
 			config = config,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
@@ -196,9 +151,13 @@ function M.get_plugin_specs()
 				"nvim-telescope/telescope-project.nvim",
 				"cljoly/telescope-repo.nvim",
 				"nvim-telescope/telescope-file-browser.nvim",
+				"debugloop/telescope-undo.nvim",
 			},
 		},
 	}
+
+	vim.u.extend_plugin_specs(plugins, "extensions.fuzzy-finder.nerd-glyphs")
+	return plugins
 end
 
 return M

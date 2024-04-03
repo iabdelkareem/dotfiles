@@ -13,7 +13,6 @@ function M.get_plugin_specs()
 				nullls.setup({
 					sources = {
 						nullls.builtins.formatting.stylua,
-						nullls.builtins.formatting.rustfmt,
 						nullls.builtins.formatting.prettierd,
 					},
 				})

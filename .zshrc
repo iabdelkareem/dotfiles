@@ -4,6 +4,8 @@ alias cat="bat --plain"
 alias python=python3
 alias sbsd="sam build && sam deploy"
 alias oil="nvim +Oil"
+alias n="nvim"
+alias nvim="~/nvim-prerelease/bin/nvim"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -127,3 +129,19 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
+zvm_vi_yank () {
+	zvm_yank
+	printf %s "${CUTBUFFER}" |  wl-copy -n
+	zvm_exit_visual_mode
+}
+
+# zvm_vi_put_after () {
+#   CUTBUFFER=\$(wl-paste -n)
+#   printf %s "${CUTBUFFER}" | wl-copy -n
+#   zvm_exit_visual_mode
+# }
+
+# for f in zvm_vi_put_after zvm_vi_put_before; do
+#   eval "$(echo "_$f() {"; declare -f $f | tail -n +2)"
+#   eval "$f() { CUTBUFFER=\$(wl-paste -n); _$f; zvm_highlight clear }"
+# done

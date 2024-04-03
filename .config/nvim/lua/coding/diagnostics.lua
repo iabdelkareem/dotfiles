@@ -72,6 +72,7 @@ end
 function M.get_plugin_specs()
 	init()
 	return {
+		-- TODO: Configure & Either use it or bqf
 		{
 			"folke/trouble.nvim",
 			config = function()

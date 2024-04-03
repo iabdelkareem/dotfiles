@@ -11,7 +11,7 @@ local function init()
 			end
 
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true, desc = "Hover", buffer = bufnr })
+			-- vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true, desc = "Hover", buffer = bufnr })
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { silent = true, desc = "Signature", buffer = bufnr })
 
 			if client.name ~= "omnisharp" then
@@ -23,10 +23,8 @@ local function init()
 			vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { silent = true, desc = "Type Definition", buffer = bufnr })
 			-- vim.keymap.set("n", "gr", "<CMD>Lspsaga lsp_finder<CR>", { silent = true, desc = "References", buffer = bufnr })
 
-			vim.keymap.set("n", "gr", function()
-				vim.lsp.buf.references({ include_declaration = false, show_line = false })
-			end, { silent = true, desc = "References", buffer = bufnr })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true, desc = "Code Actions", buffer = bufnr })
+			vim.keymap.set("n", "gr", function() vim.lsp.buf.references({ include_declaration = false, show_line = false }) end, { silent = true, desc = "References", buffer = bufnr })
+			-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true, desc = "Code Actions", buffer = bufnr })
 			-- vim.keymap.set({ "x", "v" }, "<leader>ca", vim.lsp.buf.range_code_action, { silent = true, desc = "Code Actions", buffer = bufnr })
 
 			vim.keymap.set("n", "<leader>cR", function()
@@ -35,13 +33,9 @@ local function init()
 				vim.cmd("edit")
 			end, { silent = true, desc = "Restart LSP", buffer = bufnr })
 			vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.refresh, { silent = true, desc = "Refresh CodeLens", buffer = bufnr })
-			vim.keymap.set("n", "<leader>fm", function()
-				require("telescope.builtin").lsp_document_symbols({ symbols = { "Method", "Function" } })
-			end, { silent = true, desc = "Find Methods", buffer = bufnr })
+			vim.keymap.set("n", "<leader>fm", function() require("telescope.builtin").lsp_document_symbols({ symbols = { "Method", "Function" } }) end, { silent = true, desc = "Find Methods", buffer = bufnr })
 
-			vim.keymap.set("n", "<leader>fs", function()
-				require("telescope.builtin").lsp_document_symbols()
-			end, { silent = true, desc = "Find Symbols", buffer = bufnr })
+			vim.keymap.set("n", "<leader>fs", function() require("telescope.builtin").lsp_document_symbols() end, { silent = true, desc = "Find Symbols", buffer = bufnr })
 
 			vim.keymap.set("n", "<leader>ft", require("telescope.builtin").lsp_workspace_symbols, { silent = true, desc = "Find Types", buffer = bufnr })
 

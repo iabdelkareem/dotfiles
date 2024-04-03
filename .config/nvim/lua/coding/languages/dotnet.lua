@@ -1,70 +1,57 @@
-local M = {}
+local function config_csharp()
+	require("csharp").setup({
+		lsp = {
+			cmd_path = "/home/ibrahim/personal/repos/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Debug/net8.0/Microsoft.CodeAnalysis.LanguageServer.dll",
+			-- cmd_path = "/home/ibrahim/personal/repos/omnisharp-roslyn/bin/release/OmniSharp",
+			-- cmd_path = "/home/ibrahim/lang-server/Microsoft.CodeAnalysis.LanguageServer.dll",
+			use_omnisharp = false,
+		},
+		logging = {
+			level = "TRACE",
+		},
+	})
 
-local function setup_dap(args)
-	args.dap.adapters.netcoredbg = {
-		type = "executable",
-		command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
-		args = { "--interpreter=vscode" },
-	}
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(args)
+			local bufnr = args.buf
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-	args.dap.adapters.netcoredbglambda = {
-		type = "executable",
-		command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
-		args = { "--interpreter=vscode" },
-	}
+			if client.name ~= "omnisharp" then
+				return
+			end
 
-	args.dap.configurations.cs = {
-		{
-			type = "netcoredbg",
-			name = "Attach - .NET",
-			request = "attach",
-			processId = require("dap.utils").pick_process,
-		},
-		{
-			type = "netcoredbg",
-			name = "Launch - .NET",
-			request = "launch",
-			program = function()
-				return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
-			end,
-		},
-		{
-			type = "netcoredbg",
-			name = "Launch - .NET 7 Lambda",
-			request = "launch",
-			program = function()
-				return "/home/ibrahim/.dotnet/tools/.store/amazon.lambda.testtool-7.0/0.13.1/amazon.lambda.testtool-7.0/0.13.1/tools/net7.0/any/Amazon.Lambda.TestTool.BlazorTester.dll"
-			end,
-		},
-		{
-			type = "netcoredbg",
-			name = "Launch - .NET 6 Lambda",
-			request = "launch",
-			program = function()
-				return "/home/ibrahim/.dotnet/tools/.store/amazon.lambda.testtool-6.0/0.13.1/amazon.lambda.testtool-6.0/0.13.1/tools/net6.0/any/Amazon.Lambda.TestTool.BlazorTester.dll"
-			end,
-		},
-	}
+			local get_keymap_options = function(buffer, desc) return { buffer = buffer, noremap = true, silent = true, nowait = true, desc = desc } end
+
+			local csharp = require("csharp")
+			vim.keymap.set("n", "gd", csharp.go_to_definition, get_keymap_options(bufnr, "Go to Definition"))
+			vim.keymap.set("n", "<leader>cF", csharp.fix_all, get_keymap_options(bufnr, "Fix All"))
+			vim.keymap.set("n", "<F5>", csharp.debug_project, get_keymap_options(bufnr, "Debug Project"))
+			vim.keymap.set("n", "<c-f5>", csharp.run_project, get_keymap_options(bufnr, "Run Project"))
+		end,
+	})
 end
 
-function M.get_plugin_specs()
-	vim.keymap.set("n", "<leader>cF", function()
-		local csharp = require("csharp")
-		csharp.fix_all({ scope = csharp.fix_all_scope.Solution })
-	end, { desc = "Fix All" })
-
+local function get_plugin_specs()
 	return {
 		{
+			"jmederosalvarado/roslyn.nvim",
+			enabled = false,
+			config = function() require("roslyn").setup() end,
+		},
+		{
 			"iabdelkareem/csharp.nvim",
+			enabled = true,
 			dependencies = {
 				"Tastyep/structlog.nvim",
 			},
 			dev = true,
-			config = function()
-				require("csharp").setup()
-			end,
+			config = config_csharp,
 		},
 	}
 end
 
-return M
+vim.lsp.log.set_level("TRACE")
+
+return {
+	get_plugin_specs = get_plugin_specs,
+}

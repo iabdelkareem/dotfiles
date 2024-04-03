@@ -3,6 +3,10 @@ local M = {}
 function M.get_plugin_specs()
 	local specs = {}
 
+	if require("utils").is_vscode() then
+		return {}
+	end
+
 	local extend_plugin_specs = vim.u.extend_plugin_specs
 	extend_plugin_specs(specs, "coding.comments")
 	extend_plugin_specs(specs, "coding.completion")

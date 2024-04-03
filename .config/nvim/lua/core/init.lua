@@ -18,6 +18,7 @@ function M.get_plugin_specs()
 	extend_plugin_specs(plugins, "core.save")
 	extend_plugin_specs(plugins, "core.folding")
 	extend_plugin_specs(plugins, "core.welcome-screen")
+	extend_plugin_specs(plugins, "core.notifications")
 	return plugins
 end
 

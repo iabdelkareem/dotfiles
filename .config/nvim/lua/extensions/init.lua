@@ -8,8 +8,9 @@ function M.get_plugin_specs()
 	extend_plugin_specs(specs, "extensions.csv")
 	extend_plugin_specs(specs, "extensions.databases")
 	extend_plugin_specs(specs, "extensions.frontend")
-	extend_plugin_specs(specs, "extensions.chatgpt")
 	extend_plugin_specs(specs, "extensions.git")
+	extend_plugin_specs(specs, "extensions.harpoon")
+	extend_plugin_specs(specs, "extensions.snapshots")
 	return specs
 end
 

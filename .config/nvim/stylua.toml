@@ -1,2 +1,3 @@
 quote_style = "ForceDouble"
 column_width = 260
+collapse_simple_statement = "FunctionOnly"

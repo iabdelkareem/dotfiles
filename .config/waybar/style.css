@@ -52,6 +52,17 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#idle_inhibitor {
+  border-radius: 4px;
+  margin: 6px 3px;
+  padding: 6px 12px;
+}
+
+#idle_inhibitor.activated {
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
 #memory,
 #custom-power,
 #battery,

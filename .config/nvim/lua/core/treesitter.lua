@@ -44,10 +44,9 @@ local function config()
 		incremental_selection = {
 			enable = true,
 			keymaps = {
-				init_selection = "gnn",
-				node_incremental = "grn",
-				scope_incremental = "grs",
-				node_decremental = "grm",
+				init_selection = "<CR>",
+				node_incremental = "<CR>",
+				node_decremental = "<BS>",
 			},
 		},
 
@@ -55,7 +54,8 @@ local function config()
 
 		-- vim-matchup
 		matchup = {
-			enable = true,
+			enable = false,
+			disable = { "svelte" },
 		},
 
 		-- nvim-treesitter-textobjects
@@ -146,7 +146,7 @@ function M.get_plugin_specs()
 				"RRethy/nvim-treesitter-endwise",
 				"windwp/nvim-ts-autotag",
 				"nvim-treesitter/playground",
-				"andymass/vim-matchup",
+				-- "andymass/vim-matchup",
 			},
 			config = config,
 		},

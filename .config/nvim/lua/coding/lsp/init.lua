@@ -11,9 +11,7 @@ function M.get_plugin_specs()
 				"williamboman/mason.nvim",
 				"neovim/nvim-lspconfig",
 			},
-			config = function()
-				require("mason-lspconfig").setup({ automatic_installation = true })
-			end,
+			config = function() require("mason-lspconfig").setup({ automatic_installation = true }) end,
 		},
 		{
 			"glepnir/lspsaga.nvim",
@@ -49,7 +47,8 @@ function M.get_plugin_specs()
 	extend_plugin_specs(specs, "coding.lsp.signature")
 	extend_plugin_specs(specs, "coding.lsp.null-ls")
 	extend_plugin_specs(specs, "coding.lsp.rename")
-	-- extend_plugin_specs(specs, "coding.lsp.lens")
+	extend_plugin_specs(specs, "coding.lsp.code-action")
+	extend_plugin_specs(specs, "coding.lsp.code-lens")
 	return specs
 end
 

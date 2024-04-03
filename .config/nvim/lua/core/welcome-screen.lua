@@ -105,6 +105,7 @@ function M.get_plugin_specs()
 	return {
 		{
 			"goolord/alpha-nvim",
+			cond = not require("utils").is_vscode(),
 			event = "VimEnter",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 			config = config,

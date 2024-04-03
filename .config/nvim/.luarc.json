@@ -95,5 +95,9 @@
         "/home/ibrahim/.local/share/nvim/lazy/cmp-emoji/lua",
         "/home/ibrahim/personal/repos/dotfiles/.config/nvim/lua",
         "/home/ibrahim/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/1d129479"
+    ],
+    "diagnostics.disable": [
+        "missing-global-doc",
+        "no-unknown"
     ]
 }

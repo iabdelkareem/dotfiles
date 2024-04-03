@@ -15,9 +15,7 @@ local colors = {
 	red = "#ec5f67",
 }
 
-local function separator()
-	return "%="
-end
+local function separator() return "%=" end
 
 local function lsp_client(msg)
 	msg = msg or ""
@@ -43,9 +41,7 @@ local function lsp_client(msg)
 	return "[" .. table.concat(buf_client_names, ", ") .. "]"
 end
 
-local function current_buffer()
-	return vim.api.nvim_get_current_buf()
-end
+local function current_buffer() return vim.api.nvim_get_current_buf() end
 
 local function config()
 	local code_context = require("coding.lsp.context")
@@ -103,13 +99,8 @@ function M.get_plugin_specs()
 	return {
 		{
 			"nvim-lualine/lualine.nvim",
+			cond = not require("utils").is_vscode(),
 			config = config,
-		},
-		{
-			"b0o/incline.nvim",
-			config = function()
-				require("incline").setup()
-			end,
 		},
 	}
 end

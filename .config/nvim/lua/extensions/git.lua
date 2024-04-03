@@ -36,50 +36,26 @@ function M.get_plugin_specs()
 	return {
 		{
 			"pwntester/octo.nvim",
-			config = function()
-				require("octo").setup()
-			end,
+			cond = not require("utils").is_vscode(),
+			config = function() require("octo").setup() end,
 		},
 
 		{
 			"sindrets/diffview.nvim",
-			config = function()
-				require("diffview").setup({ enhanced_diff_hl = true })
-			end,
+			config = function() require("diffview").setup({ enhanced_diff_hl = true }) end,
 		},
-		"tpope/vim-fugitive",
-		"rbong/vim-flog",
-		-- {
-		-- 	"NeogitOrg/neogit",
-		-- 	config = function()
-		-- 		require("neogit").setup()
-		-- 	end,
-		-- },
-
+		{ "tpope/vim-fugitive", cond = not require("utils").is_vscode() },
+		{ "rbong/vim-flog", cond = not require("utils").is_vscode() },
 		{
 			"lewis6991/gitsigns.nvim",
+			cond = not require("utils").is_vscode(),
 			config = config_gitsigns,
 		},
 		{
-			"ldelossa/gh.nvim",
-			dependencies = {
-				{
-					"ldelossa/litee.nvim",
-					config = function()
-						require("litee.lib").setup()
-					end,
-				},
-			},
-			config = function()
-				require("litee.gh").setup()
-			end,
-		},
-		{
 			"ruifm/gitlinker.nvim",
+			cond = not require("utils").is_vscode(),
 			dependencies = { "nvim-lua/plenary.nvim" },
-			config = function()
-				require("gitlinker").setup()
-			end,
+			config = function() require("gitlinker").setup() end,
 		},
 	}
 end
