@@ -156,6 +156,11 @@ function M.get_plugin_specs()
 				end, { noremap = true, desc = "Close Window" })
 			end,
 		},
+		{
+			"nvim-zh/colorful-winsep.nvim",
+			config = true,
+			event = { "WinNew" },
+		},
 	}
 end
 

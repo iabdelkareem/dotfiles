@@ -1,12 +1,13 @@
 local M = {}
 
 local function config()
-  require("nvim-autopairs").setup({
-    check_ts = true,
-  })
-  local cmp = require("cmp")
-  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+	require("nvim-autopairs").setup({
+		check_ts = true,
+	})
+
+	local cmp = require("cmp")
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
 -- local function config()
@@ -43,16 +44,16 @@ end
 -- end
 
 function M.get_plugin_specs()
-  return {
-    {
-      "windwp/nvim-autopairs",
-      dependencies = {
-        "hrsh7th/nvim-cmp",
-        "nvim-treesitter/nvim-treesitter",
-      },
-      config = config,
-    },
-  }
+	return {
+		{
+			"windwp/nvim-autopairs",
+			dependencies = {
+				"hrsh7th/nvim-cmp",
+				"nvim-treesitter/nvim-treesitter",
+			},
+			config = config,
+		},
+	}
 end
 
 return M

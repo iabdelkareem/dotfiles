@@ -2,10 +2,16 @@
 alias ls="lsd --oneline"
 alias cat="bat --plain"
 alias python=python3
-alias sbsd="sam build && sam deploy"
 alias oil="nvim +Oil"
+# alias nvim=/home/ibrahim/nvim/bin/nvim
 alias n="nvim"
-alias nvim="~/nvim-prerelease/bin/nvim"
+export PATH="/home/ibrahim/.local/share/nvim/mason/bin:$PATH"
+export PATH="/home/ibrahim/.dotnet:$PATH"
+export PERSONAL_REPOS=/home/ibrahim/personal/repos
+export EDITOR=nvim
+export MANPAGER='nvim +Man!'
+export PAGER="less"
+export LESS="-FXR"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

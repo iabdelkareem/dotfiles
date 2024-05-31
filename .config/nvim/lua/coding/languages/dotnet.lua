@@ -1,11 +1,5 @@
 local function config_csharp()
 	require("csharp").setup({
-		lsp = {
-			cmd_path = "/home/ibrahim/personal/repos/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Debug/net8.0/Microsoft.CodeAnalysis.LanguageServer.dll",
-			-- cmd_path = "/home/ibrahim/personal/repos/omnisharp-roslyn/bin/release/OmniSharp",
-			-- cmd_path = "/home/ibrahim/lang-server/Microsoft.CodeAnalysis.LanguageServer.dll",
-			use_omnisharp = false,
-		},
 		logging = {
 			level = "TRACE",
 		},
@@ -40,17 +34,16 @@ local function get_plugin_specs()
 		},
 		{
 			"iabdelkareem/csharp.nvim",
-			enabled = true,
+			dev = true,
 			dependencies = {
+				"williamboman/mason.nvim",
+				"mfussenegger/nvim-dap",
 				"Tastyep/structlog.nvim",
 			},
-			dev = true,
 			config = config_csharp,
 		},
 	}
 end
-
-vim.lsp.log.set_level("TRACE")
 
 return {
 	get_plugin_specs = get_plugin_specs,

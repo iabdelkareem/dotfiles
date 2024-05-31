@@ -44,9 +44,7 @@ local yank_highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clea
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = yank_highlight_group,
 	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+	callback = function() vim.highlight.on_yank() end,
 	desc = "Highlight text after yank",
 })
 
@@ -71,3 +69,12 @@ vim.keymap.set("n", "yp", function()
 	vim.fn.setreg("+", filename)
 	-- vim.api.
 end, { desc = "Yank file path" })
+
+vim.filetype.add({
+	filename = {
+		["~/.config/waybar/config"] = "jsonc",
+	},
+	pattern = {
+		[".*/waybar/config"] = "jsonc",
+	},
+})

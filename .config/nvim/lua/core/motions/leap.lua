@@ -1,5 +1,3 @@
-local M = {}
-
 local function get_line_starts(winid)
 	local wininfo = vim.fn.getwininfo(winid)[1]
 	local cur_line = vim.fn.line(".")
@@ -41,7 +39,7 @@ local function leap_to_line()
 	})
 end
 
-function M.get_plugin_specs()
+local function get_plugin_specs()
 	return {
 		{
 			"ggandor/leap.nvim",
@@ -87,4 +85,7 @@ function M.get_plugin_specs()
 	}
 end
 
-return M
+--- @type Module
+return {
+	get_plugin_specs = get_plugin_specs,
+}

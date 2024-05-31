@@ -62,7 +62,7 @@ function M.get_plugin_specs()
 		{ "mfussenegger/nvim-dap", config = config_dap },
 		{
 			"rcarriga/nvim-dap-ui",
-			dependencies = { "mfussenegger/nvim-dap" },
+			dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 			config = config_dap_ui,
 		},
 		{

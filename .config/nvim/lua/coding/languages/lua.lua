@@ -14,6 +14,8 @@ function M.get_lsp_configs()
 						library = {
 							"/usr/share/lua/5.4/luassert",
 							"$HOME/personal/repos/csharp.nvim/lua",
+							"$HOME/personal/repos/aws.nvim/lua",
+							"$HOME/.local/share/nvim/lazy/nui.nvim/lua",
 						},
 					},
 					completion = {
@@ -71,7 +73,9 @@ function M.get_plugin_specs()
 	return {
 		{
 			{ "folke/neodev.nvim" },
-			"rafcamlet/nvim-luapad",
+			{ "rafcamlet/nvim-luapad", config = function()
+				vim.keymap.set("n", "<leader>L", "<CMD>Luapad<CR>", { noremap = true, silent = true })
+			end },
 			{
 				"jbyuki/one-small-step-for-vimkind",
 				dependencies = { "mfussenegger/nvim-dap" },

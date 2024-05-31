@@ -35,7 +35,8 @@
     "window-rewrite-default": "{}",
     "window-rewrite": {
       "class<kitty>": "",
-      "class<firefox>": "", // Windows whose classes are "firefox"
+      "class<org.mozilla.firefox>": "", // Windows whose classes are "firefox",
+      "class<protonvpn-app>": "",
       "class<Slack>": "",
       "class<YouTube Music>": "",
       "class<Google-chrome>": "",

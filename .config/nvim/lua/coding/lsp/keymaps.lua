@@ -12,7 +12,7 @@ local function init()
 
 			vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 			-- vim.keymap.set("n", "K", vim.lsp.buf.hover, { silent = true, desc = "Hover", buffer = bufnr })
-			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { silent = true, desc = "Signature", buffer = bufnr })
+			-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { silent = true, desc = "Signature", buffer = bufnr })
 
 			if client.name ~= "omnisharp" then
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true, desc = "Definition", buffer = bufnr })

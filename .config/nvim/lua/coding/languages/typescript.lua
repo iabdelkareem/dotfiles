@@ -2,7 +2,12 @@ local M = {}
 
 function M.get_lsp_configs()
 	return {
-		eslint = {},
+		eslint = {
+			settings = {
+				packageManager = "npm",
+				format = false,
+			},
+		},
 	}
 end
 
@@ -14,6 +19,11 @@ function M.get_plugin_specs()
 			config = function()
 				require("typescript-tools").setup({
 					expose_as_code_action = "all",
+					complete_function_calls = true,
+					tsserver_file_preferences = {
+						includeCompletionsForModuleExports = true,
+						includeCompletionsForImportStatements = true,
+					},
 				})
 			end,
 		},

@@ -4,14 +4,16 @@ function M.get_plugin_specs()
 	local specs = {
 		{
 			"neovim/nvim-lspconfig",
-		},
-		{
-			"williamboman/mason-lspconfig.nvim",
 			dependencies = {
-				"williamboman/mason.nvim",
-				"neovim/nvim-lspconfig",
+				{
+					"williamboman/mason-lspconfig.nvim",
+					dependencies = {
+						"williamboman/mason.nvim",
+						"neovim/nvim-lspconfig",
+					},
+					config = function() require("mason-lspconfig").setup({ automatic_installation = true }) end,
+				},
 			},
-			config = function() require("mason-lspconfig").setup({ automatic_installation = true }) end,
 		},
 		{
 			"glepnir/lspsaga.nvim",
@@ -49,6 +51,7 @@ function M.get_plugin_specs()
 	extend_plugin_specs(specs, "coding.lsp.rename")
 	extend_plugin_specs(specs, "coding.lsp.code-action")
 	extend_plugin_specs(specs, "coding.lsp.code-lens")
+	extend_plugin_specs(specs, "coding.lsp.hover")
 	return specs
 end
 

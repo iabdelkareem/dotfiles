@@ -3,13 +3,24 @@ local M = {}
 function M.get_lsp_configs()
 	return {
 		angularls = {},
-		cssls = {},
-		cssmodules_ls = {},
+		cssls = {
+			filetypes = { "css", "scss", "less" },
+		},
+		cssmodules_ls = {
+			filetypes = { "css", "scss", "less" },
+		},
 		html = {
 			filetypes = { "html", "svelte" },
 		},
 		svelte = {},
-		tailwindcss = {},
+		tailwindcss = {
+			hovers = true,
+			suggestions = true,
+			root_dir = function(fname)
+				local root_pattern = require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
+				return root_pattern(fname)
+			end,
+		},
 	}
 end
 

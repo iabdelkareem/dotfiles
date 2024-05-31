@@ -1,27 +1,15 @@
-local M = {}
+local utils = require("utils")
 
-function M.get_plugin_specs()
-	local specs = {
-		{
-			{
-				"nvim-tree/nvim-web-devicons",
-				cond = not require("utils").is_vscode(),
-				config = function() require("nvim-web-devicons").setup({ default = true }) end,
-				lazy = false,
-				priority = 1000,
-			},
-			{
-				"norcalli/nvim-colorizer.lua",
-				cond = not require("utils").is_vscode(),
-				config = function() require("colorizer").setup() end,
-			},
-			"stevearc/dressing.nvim",
-		},
-	}
+local function get_plugin_specs()
+	local specs = {}
 
-	-- vim.u.extend_plugin_specs(specs, "theme.vscode")
-	vim.u.extend_plugin_specs(specs, "theme.darkplus")
+	utils.extend_plugin_specs(specs, "theme.tokyonight")
+	utils.extend_plugin_specs(specs, "theme.nvim-web-devicons")
+	utils.extend_plugin_specs(specs, "theme.nvim-colorizer")
+	utils.extend_plugin_specs(specs, "theme.dressing")
 	return specs
 end
 
-return M
+return {
+	get_plugin_specs = get_plugin_specs,
+}

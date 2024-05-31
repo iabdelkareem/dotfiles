@@ -85,9 +85,8 @@ local function config()
 			},
 			project = {
 				base_dirs = {
-					{ vim.fn.getenv("WORK_REPOS"), max_depth = 2 },
-					{ vim.fn.getenv("PERSONAL_REPOS"), max_depth = 2 },
-					{ vim.fn.getenv("BYTES_MAESTROS_REPOS"), max_depth = 2 },
+					{ "~/personal/repos", max_depth = 3 },
+					{ "~/personal/bytes-maestros/repos", max_depth = 1 },
 					{ "~/.local/share/nvim/lazy", max_depth = 3 },
 				},
 				order_by = "recent",
@@ -157,6 +156,7 @@ function M.get_plugin_specs()
 	}
 
 	vim.u.extend_plugin_specs(plugins, "extensions.fuzzy-finder.nerd-glyphs")
+	vim.u.extend_plugin_specs(plugins, "extensions.fuzzy-finder.environment-variables")
 	return plugins
 end
 
